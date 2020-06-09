@@ -5,7 +5,7 @@ const notReadyYet = new Error("WASM module is not ready yet");
 
 export let onReady: () => void = () => {};
 if (!("TML" in global))  {
-  load("https://cdn.jsdelivr.net/gh/yanishoss/tml@v1.1.3/bin/main.wasm")
+  load("https://cdn.jsdelivr.net/gh/yanishoss/tml/bin/main.wasm")
     .then(() => onReady())
     .catch(e => {throw e});
 }
