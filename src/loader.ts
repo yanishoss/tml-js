@@ -1,5 +1,3 @@
-import "../vendor/wasm_exec.js";
-
 // @ts-ignore
 export const go = new global.Go();
 
