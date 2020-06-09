@@ -16,7 +16,13 @@ export function parse(input: string, conf?: ParserConfig): Workout {
   }
 
   // @ts-ignore
-  return TML.parse(input, conf);
+  const ret = TML.parse(input, conf);
+
+  if (ret.Error !== undefined) {
+    throw new Error(ret.Error());
+  }
+
+  return ret;
 }
 
 export function withDefaultConfig(): ParserConfig {
