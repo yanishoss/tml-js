@@ -104,3 +104,4 @@ typings/
 .idea/
 
 internal_test/
+dist/internal_test/

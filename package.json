@@ -15,5 +15,5 @@
   "scripts": {
     "build": "microbundle",
     "dev": "microbundle watch"
-  },
+  }
 }
