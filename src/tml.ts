@@ -3,10 +3,10 @@ import {ParserConfig, Workout} from "./types";
 
 const notReadyYet = new Error("WASM module is not ready yet");
 
-let ready = false;
+export let onReady: () => void = () => {};
 if (!("TML" in global))  {
   load("https://raw.githubusercontent.com/yanishoss/tml/v1.1.3/bin/main.wasm")
-    .then(() => ready = true)
+    .then(() => onReady())
     .catch(e => {throw e});
 }
 
