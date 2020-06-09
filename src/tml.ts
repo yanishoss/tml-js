@@ -4,19 +4,19 @@ import {ParserConfig, Workout} from "./types";
 const notReadyYet = new Error("WASM module is not ready yet");
 
 export let onReady: () => void = () => {};
-if (!("TML" in global))  {
+if (!("TML_parse" in global))  {
   load("https://cdn.jsdelivr.net/gh/yanishoss/tml/bin/main.wasm")
     .then(() => onReady())
     .catch(e => {throw e});
 }
 
 export function parse(input: string, conf?: ParserConfig): Workout {
-  if (!("TML" in global))  {
+  if (!("TML_parse" in global))  {
     throw notReadyYet;
   }
 
   // @ts-ignore
-  const ret = TML.parse(input, conf);
+  const ret = TML_parse(input, conf);
 
   if (ret.Error !== undefined) {
     throw new Error(ret.Error());
@@ -26,10 +26,10 @@ export function parse(input: string, conf?: ParserConfig): Workout {
 }
 
 export function withDefaultConfig(): ParserConfig {
-  if (!("TML" in global))  {
+  if (!("TML_withDefaultConfig" in global))  {
     throw notReadyYet;
   }
 
   // @ts-ignore
-  return TML.withDefaultConfig(input, conf);
+  return TML_withDefaultConfig(input, conf);
 }
