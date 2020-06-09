@@ -7,6 +7,7 @@
     "microbundle": "^0.12.0"
   },
   "name": "tml-parser",
+  "repository": "https://github.com/yanishoss/tml-js",
   "source": "src/tml.ts",
   "main": "dist/tml.js",
   "module": "dist/tml.module.js",
